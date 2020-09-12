@@ -1,0 +1,1 @@
+export { checkError } from "./checkError";
