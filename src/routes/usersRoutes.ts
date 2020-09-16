@@ -1,21 +1,22 @@
 import { Request, Response, Router } from "express";
 import { logger } from "../config";
 import { validateAndSave } from "../functions";
-import Item from "../models/Item";
+import User from "../models/User";
 const router = Router();
 
 router.post("/new", async (req: Request, res: Response) => {
-    const { category, name, price, picture } = req.body;
+    const { firstName, lastName, googleData, picture } = req.body;
 
-    const item = new Item({
-        category,
-        name,
-        price,
+    const user = new User({
+        firstName,
+        lastName,
+        googleData,
         picture,
-        orders: 0
+        orders: [],
+        favourites: []
     });
 
-    await validateAndSave(item, res);
+    await validateAndSave(user, res);
 });
 
 export default router;

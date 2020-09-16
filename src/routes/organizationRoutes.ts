@@ -1,21 +1,21 @@
+import { mongoose } from "@typegoose/typegoose";
 import { Request, Response, Router } from "express";
 import { logger } from "../config";
 import { validateAndSave } from "../functions";
-import Item from "../models/Item";
+import Organization from "../models/Organization";
 const router = Router();
 
 router.post("/new", async (req: Request, res: Response) => {
-    const { category, name, price, picture } = req.body;
+    const { name, picture } = req.body;
 
-    const item = new Item({
-        category,
+    const organization = new Organization({
         name,
-        price,
         picture,
-        orders: 0
+        users: [],
+        orders: []
     });
 
-    await validateAndSave(item, res);
+    await validateAndSave(organization, res);
 });
 
 export default router;

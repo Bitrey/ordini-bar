@@ -6,10 +6,12 @@ import {
 } from "@typegoose/typegoose";
 import * as mongoose from "mongoose";
 import { ItemClass } from "./Item";
+import { BarClass } from "./Bar";
+import { OrganizationClass } from "./Organization";
 
 @modelOptions({ schemaOptions: { timestamps: true, collection: "Category" } })
 export class CategoryClass {
-    @prop({ required: true })
+    @prop({ required: true, minlength: 5, maxlength: 20 })
     public name!: string;
 
     @prop()
@@ -19,10 +21,13 @@ export class CategoryClass {
     public items!: Ref<ItemClass>[];
 
     @prop({ ref: "Item", default: [] })
-    public favourites!: Ref<ItemClass>[];
+    public highlighted!: Ref<ItemClass>[];
 
-    // @prop({ ref: "Organization", default: [] })
-    // public organization!: Ref<OrganizationClass>[];
+    @prop({ ref: "Bar", required: true })
+    public bar!: Ref<BarClass>;
+
+    @prop({ ref: "Organization", required: true })
+    public organization!: Ref<OrganizationClass>;
 }
 
 const Category = getModelForClass(CategoryClass);

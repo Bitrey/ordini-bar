@@ -7,6 +7,7 @@ import {
 import * as mongoose from "mongoose";
 import { ItemClass } from "./Item";
 import { OrderClass } from "./Order";
+import { OrganizationClass } from "./Organization";
 
 class GoogleData {
     @prop({ required: true })
@@ -39,8 +40,8 @@ export class UserClass {
     @prop({ ref: "Item", default: [] })
     public favourites!: Ref<ItemClass>[];
 
-    // @prop({ ref: "Organization", default: [] })
-    // public organization!: Ref<OrganizationClass>[];
+    @prop({ ref: "Organization", default: [] })
+    public organizations!: Ref<OrganizationClass>[];
 }
 
 const User = getModelForClass(UserClass);
