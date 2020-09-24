@@ -13,7 +13,7 @@ import { OrganizationClass } from "./Organization";
 @modelOptions({ schemaOptions: { timestamps: true, collection: "Item" } })
 export class ItemClass {
     @prop({ ref: "Category", required: true })
-    public category?: Ref<CategoryClass> | null;
+    public category?: Ref<CategoryClass>;
 
     @prop({ required: true, minlength: 5, maxlength: 20 })
     public name!: string;

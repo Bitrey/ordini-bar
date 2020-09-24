@@ -1,7 +1,13 @@
 import { logger } from "./logger";
 
 // Check by strings array
-export const REQUIRED_ENVS = ["IP", "PORT", "MONGOOSE_URI"];
+export const REQUIRED_ENVS = [
+    "IP",
+    "PORT",
+    "MONGOOSE_URI",
+    "JWT_TOKEN",
+    "COOKIE_SECRET"
+];
 for (const env of REQUIRED_ENVS) {
     if (typeof process.env[env] !== "string") {
         logger.error(Error(`Environment variable "${env}" does not exist!`));

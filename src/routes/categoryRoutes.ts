@@ -15,7 +15,7 @@ router.post("/new", async (req: Request, res: Response) => {
         organization
     });
 
-    await validateAndSave(category, res);
+    if (!(await validateAndSave(category, res))) return;
 });
 
 export default router;

@@ -15,7 +15,7 @@ router.post("/new", async (req: Request, res: Response) => {
         orders: 0
     });
 
-    await validateAndSave(item, res);
+    if (!(await validateAndSave(item, res))) return;
 });
 
 export default router;

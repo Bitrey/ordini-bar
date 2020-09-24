@@ -9,7 +9,7 @@ router.post("/new", async (req: Request, res: Response) => {
 
     const user = new User({ customer, items, organization });
 
-    await validateAndSave(user, res);
+    if (!(await validateAndSave(user, res))) return;
 });
 
 export default router;
