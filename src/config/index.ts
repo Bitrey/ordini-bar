@@ -1,4 +1,5 @@
 import path from "path";
+// import { logger } from "./logger";
 
 // Options
 export const options = {
@@ -10,6 +11,9 @@ export const options = {
     uploadsPath: path.join(process.cwd(), "uploads")
 };
 
+// Logger
+export { logger } from "./logger";
+
 // Env
 import "./dotenv";
 import "./checkEnv";
@@ -18,7 +22,9 @@ import "./checkEnv";
 import "./database";
 
 // Express
-import "./express";
+import "..";
 
-// Logger
-export { logger } from "./logger";
+// Swagger
+import "./swagger";
+
+// logger.debug("Config file loaded");

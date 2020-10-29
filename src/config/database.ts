@@ -1,6 +1,8 @@
 import mongoose from "mongoose";
 import { logger } from "./logger";
 
+logger.debug("Database config file loaded");
+
 const { MONGOOSE_URI } = process.env;
 
 mongoose.set("useNewUrlParser", true);

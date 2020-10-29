@@ -111,6 +111,9 @@ export class UserClass {
     // If logged in with email / password
 
     @prop({ default: null })
+    public role?: LocalAuth | null;
+
+    @prop({ default: null })
     public localAuth?: LocalAuth | null;
 
     // If Google account connected

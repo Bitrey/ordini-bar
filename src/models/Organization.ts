@@ -31,10 +31,6 @@ export class OrganizationClass {
     @prop()
     public joinCode?: string;
 
-    // Same as acceptExternalUsers so remove it
-    @prop({ required: true, default: true })
-    public canJoinFromCode!: boolean;
-
     @prop({ ref: "Invite", default: [] })
     public sentInvites!: Ref<InviteClass>[];
 
@@ -43,6 +39,9 @@ export class OrganizationClass {
 
     @prop({ ref: "User", default: [] })
     public users!: Ref<UserClass>[];
+
+    @prop({ ref: "User", default: [] })
+    public admins!: Ref<UserClass>[];
 
     @prop({ ref: "Order", default: [] })
     public orders!: Ref<OrderClass>[];

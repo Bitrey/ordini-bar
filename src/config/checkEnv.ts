@@ -1,5 +1,7 @@
 import { logger } from "./logger";
 
+logger.debug("Env checker config file loaded");
+
 // Check by strings array
 export const REQUIRED_ENVS = [
     "IP",
