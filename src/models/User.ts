@@ -102,7 +102,7 @@ export class UserClass {
     @prop({
         required: true,
         validate: {
-            validator: email => EmailValidator.validate(email),
+            validator: (email: string) => EmailValidator.validate(email),
             message: "Invalid email"
         }
     })

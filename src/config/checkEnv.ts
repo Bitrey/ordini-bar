@@ -1,4 +1,7 @@
+import dotenv from "dotenv";
 import { logger } from "./logger";
+
+dotenv.config();
 
 logger.debug("Env checker config file loaded");
 

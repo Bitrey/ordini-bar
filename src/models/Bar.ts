@@ -6,21 +6,8 @@ import {
 } from "@typegoose/typegoose";
 import * as mongoose from "mongoose";
 import { CategoryClass } from "./Category";
+import { OpeningTimeClass } from "./OpeningTime";
 import { OrganizationClass } from "./Organization";
-
-export class OpeningTime {
-    @prop({ required: true })
-    public fromDate!: Date;
-
-    @prop({ required: true })
-    public toDate!: Date;
-
-    @prop({ required: true })
-    public fromHour!: string;
-
-    @prop({ required: true })
-    public toHour!: string;
-}
 
 @modelOptions({ schemaOptions: { timestamps: true, collection: "Bar" } })
 export class BarClass {
@@ -35,7 +22,7 @@ export class BarClass {
     public picture?: string;
 
     @prop()
-    public openingTimes?: OpeningTime[];
+    public openingTimes?: Ref<OpeningTimeClass>[];
 
     @prop({ ref: "Organization", required: true })
     public organization!: Ref<OrganizationClass>;

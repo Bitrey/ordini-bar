@@ -34,7 +34,7 @@ const runFunctions = (
         }
 
         // All ok
-        return resolve();
+        return resolve(document);
     });
 };
 

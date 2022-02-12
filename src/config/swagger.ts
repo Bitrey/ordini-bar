@@ -1,4 +1,3 @@
-import swaggerJsDoc, { Options } from "swagger-jsdoc";
 import { logger } from "./logger";
 import path from "path";
 
